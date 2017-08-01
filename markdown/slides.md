@@ -39,7 +39,7 @@ un _Webview_ para renderizar, el desempeño de la aplicación mejora
 considerablemente.
 
 * __Redux:__ El _flujo de datos_ de la aplicación puede manejarse usando redux
-haciéndo los estados de la aplicación más predecibles y fáciles de diseñar.
+haciendo los estados de la aplicación más predecibles y fáciles de diseñar.
 
 * __Modularidad:__ Como en _React_, los Componentes desarrollados pueden ser
 altamente reutilizables.
@@ -156,6 +156,8 @@ npm start
 
 .big[Escanea el código de barras que aparece en pantalla con _Expo Client_ y
 estás listo para empezar!.]
+
+.footnote[.alt-link[[Anuncio de CRNA](https://facebook.github.io/react-native/blog/2017/03/13/introducing-create-react-native-app.html)]]
 
 ---
 class: center, middle
@@ -318,6 +320,23 @@ class: left, middle
 * ¿Puedo usar otras librerías de _JavaScript_ en React Native?
   * Si, mientras no actúen sobre el DOM y no lo requieran para funcionar (es
     decir, mientras trabajen solo usando JS), un ejemplo de esto es _moment.js_.
+]
+
+---
+class: left, middle
+
+# Otras Consideraciones
+
+.big[
+
+* Y... ¿Cómo llevo esto a un APK o un IPA?
+
+  * La respuesta es complicada, en este punto hay básicamente 2 opciones, una
+  es la ruta [Expo](https://expo.io/), que require su propio SDK. La otra opción
+  es [eyectar](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)
+  la App, no require el SDK ni cuenta en _Expo_, pero se deberá usar
+  _Android Studio_ y _Xcode_ para completar el proceso.
+
 ]
 
 ---
