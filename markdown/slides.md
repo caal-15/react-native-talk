@@ -82,7 +82,7 @@ provee _Componentes Nativos_ que cumplen esa misma función.]
 import React from 'react'
 import { View, Text } from 'react-native'
 
-export default function HelloComponent () {
+const HelloComponent = () => {
   return (
     <View>
       <Text>Hello!</Text>
@@ -100,7 +100,7 @@ class: left, middle
 _inline styles_ de React, el layout se puede hacer utilizando flex:]
 
 ```javascript
-export default function HelloComponent () {
+const HelloComponent = () => {
   const contStyle = {
     flex: 1,
     backgroundColor: 'blue'
@@ -126,7 +126,7 @@ class AwesomeHello extends Component {
     super(props)
     this.state = { iHaveState: true }
   }
-  render () {
+  render() {
     const { iHaveProps } = this.props
     const { iHaveState } = this.state
     ...
@@ -179,16 +179,17 @@ class: left, middle
 # Los Reducers
 
 ```javascript
-const initialState = {
+const initState = {
   saidHello: false,
   phrase: 'Hello'
 }
-function reducer (state=initialState, action) {
-  switch action.type {
+const reducer = (state=initState, action) => {
+  switch (action.type) {
     case 'SAID_HELLO':
-      return Object.assign({}, state, {
+      return {
+        ...state,
         saidHello: true
-      })
+      }
     ...
   }
 }
@@ -202,11 +203,7 @@ class: left, middle
 ```javascript
 import { createStore } from 'redux'
 
-export default store = createStore (
-  reducer,
-  undefined
-  ...
-)  
+export default store = createStore(reducer)
 ```
 
 ---
@@ -239,13 +236,13 @@ class: left, middle
 import { connect } from 'react-redux'
 
 class Hello extends Component {
-  componentWillMount () {
+  componentWillMount() {
     this.props.dispatch({ type: 'SAID_HELLO' })
   }
   ...
 }
 
-function mapStateToProps (state) {
+const mapStateToProps = (state) => {
   return { saidHello: state.saidHello }
 }
 
@@ -261,11 +258,13 @@ class: left, middle
 un ejemplo:]
 
 ```javascript
-import {StackNavigator} from 'react-navigation'
+import {
+  StackNavigator
+} from 'react-navigation'
 import Login from './Login'
 import Home from './Home'
 
-export default Navigator = StackNavigator ({
+export default Navigator = StackNavigator({
   Login: { screen: Login },
   Home: { screen: Home }
 })
@@ -279,7 +278,7 @@ class: left, middle
 ```javascript
 import Navigator from './Navigator'
 
-export default function App () {
+const App = () => {
   return (
     <Navigator />
   )
@@ -293,7 +292,7 @@ class: left, middle
 ```javascript
 class Login extends Component {
   ...
-  componentDidUpdate () {
+  componentDidUpdate() {
     const { user, navigation } = this.props
     if (user) {
       navigation.navigate('Home')
